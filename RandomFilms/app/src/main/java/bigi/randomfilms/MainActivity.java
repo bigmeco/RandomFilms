@@ -11,6 +11,7 @@ import java.io.IOException;
 
 import bigi.randomfilms.POJO.Example;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -18,6 +19,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private static final String URL = "https://api.themoviedb.org/3/";
     KenBurnsView kbv;
+    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,15 +34,27 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         InterfFilm service = retrofit.create(InterfFilm.class);
         Call<Example> call = service.listRepos(299);
-        Response<Example> response = null;
-        try {
-            response = call.execute();
+        call.enqueue(new Callback<Example>() {
+                         @Override
+                         public void onResponse(Call<Example> call, Response<Example> response) {
+                             System.out.println(response.body().getOverview());
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Example map = response.body();
-        System.out.println(map.getOverview());
+                         }
+
+                         @Override
+                         public void onFailure(Call<Example> call, Throwable t) {
+
+                         }
+                     });
+//        Response<Example> response = null;
+//        try {
+//            response = call.execute();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        Example map = response.body();
+//        System.out.println(map.getOverview());
 
 
         Picasso.with(this)
