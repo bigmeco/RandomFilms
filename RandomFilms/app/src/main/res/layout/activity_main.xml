@@ -34,7 +34,32 @@
                 android:scaleType="centerCrop"
                 android:id="@+id/backdrop_path"
                 />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
 
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|top"
+                    android:elevation="1dp"
+                    app:srcCompat="@mipmap/ic_la" />
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="298"
+                    android:textAlignment="center"
+                    android:textColor="@color/osnovnoi"
+                    android:textStyle="bold" />
+            </FrameLayout>
 
         </com.github.florent37.arclayout.ArcLayout>
 
