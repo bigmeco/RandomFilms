@@ -54,7 +54,7 @@
         android:layout_toStartOf="@+id/space" />
 
     <TextView
-        android:id="@+id/vote_count"
+        android:id="@+id/release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/original_title"
