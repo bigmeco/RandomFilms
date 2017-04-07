@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
                 title.setText(response.body().getTitle());
                 original_title.setText(response.body().getOriginalTitle());
                 overview.setText(response.body().getOverview());
-
                 release_date.setText(response.body().getReleaseDate());
             }
 
@@ -137,7 +136,6 @@ public class MainActivity extends AppCompatActivity {
                         .placeholder(R.drawable.fon)
                         .error(R.drawable.fon)
                         .into(kbv);
-
                 Picasso.with(MainActivity.this)
                         .load(Imeg+F.getPosterPath())
                         .placeholder(R.drawable.fon)
@@ -146,9 +144,8 @@ public class MainActivity extends AppCompatActivity {
                 title.setText(F.getTitle());
                 original_title.setText(F.getOriginalTitle());
                 overview.setText(F.getOverview());
-
                 release_date.setText(F.getReleaseDate());
-
+                editText.setText(F.getId().toString());
 
         }
 
