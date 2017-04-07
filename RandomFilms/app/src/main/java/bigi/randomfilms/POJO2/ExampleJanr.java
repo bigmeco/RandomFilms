@@ -1,21 +1,26 @@
 
 package bigi.randomfilms.POJO2;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Example {
+import retrofit2.Callback;
+
+public class ExampleJanr {
 
     @SerializedName("genres")
     @Expose
-    private List<Genre> genres = null;
+    private ArrayList<GenreJanr> genres = new ArrayList<GenreJanr>();
 
-    public List<Genre> getGenres() {
+
+
+    public ArrayList<GenreJanr> getGenres() {
         return genres;
     }
 
-    public void setGenres(List<Genre> genres) {
+    public void setGenres(ArrayList<GenreJanr> genres) {
         this.genres = genres;
     }
 

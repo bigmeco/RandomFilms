@@ -1,6 +1,7 @@
 package bigi.randomfilms;
 
 import bigi.randomfilms.POJO.Example;
+import bigi.randomfilms.POJO2.ExampleJanr;
 import bigi.randomfilms.POJOrandom.ExampleRandom;
 import retrofit2.Call;
 import retrofit2.http.FormUrlEncoded;
@@ -19,4 +20,7 @@ public interface InterfFilm {
 
     @GET("discover/movie?api_key=ba8e8a114ce7fc27aa71ebec8c0b1afe&language=ru-RU&")
     Call<ExampleRandom> RandomZp(@Query("page") int Rj);
+
+    @GET("genre/movie/list?api_key=ba8e8a114ce7fc27aa71ebec8c0b1afe&language=ru-RU")
+    Call<ExampleJanr> EJanr();
 }

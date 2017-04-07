@@ -1,8 +1,10 @@
 package bigi.randomfilms;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -14,6 +16,8 @@ import com.squareup.picasso.Picasso;
 import java.util.Random;
 
 import bigi.randomfilms.POJO.Example;
+import bigi.randomfilms.POJO2.ExampleJanr;
+import bigi.randomfilms.POJO2.GenreJanr;
 import bigi.randomfilms.POJOrandom.ExampleRandom;
 import bigi.randomfilms.POJOrandom.ResultRandom;
 import retrofit2.Call;
@@ -35,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editText;
     ImageButton imageButton;
     ImageButton imageButton2;
+    Button bat;
     final Random random = new Random();
     int ID;
 
@@ -49,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         overview = (TextView) findViewById(R.id.overview);
         release_date = (TextView) findViewById(R.id.release_date);
         editText = (EditText) findViewById(R.id.editText);
+
 
 
         imageButton = (ImageButton) findViewById(R.id.imageButton);
@@ -69,6 +75,15 @@ public class MainActivity extends AppCompatActivity {
                 RandomSbor(srtoni, nomer);
             }
         });
+    bat = (Button) findViewById(R.id.bat);
+        bat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                intent = new Intent(MainActivity.this, Main2Activity.class);
+                startActivity(intent);
+            }
+        } );
     }
 
     public InterfFilm RetrZap() {
@@ -142,6 +157,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
 
 

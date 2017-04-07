@@ -4,7 +4,7 @@ package bigi.randomfilms.POJO2;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Genre {
+public class GenreJanr {
 
     @SerializedName("id")
     @Expose
