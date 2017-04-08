@@ -12,15 +12,17 @@ public class ExampleJanr {
 
     @SerializedName("genres")
     @Expose
-    private ArrayList<GenreJanr> genres = new ArrayList<GenreJanr>();
+    private List<GenreJanr> genres = new ArrayList<GenreJanr>();
 
-
-
-    public ArrayList<GenreJanr> getGenres() {
+    public List<GenreJanr> getListbuku() {
         return genres;
     }
 
-    public void setGenres(ArrayList<GenreJanr> genres) {
+    public List<GenreJanr> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<GenreJanr> genres) {
         this.genres = genres;
     }
 
