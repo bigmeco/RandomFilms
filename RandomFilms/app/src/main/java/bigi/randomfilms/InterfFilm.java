@@ -2,6 +2,7 @@ package bigi.randomfilms;
 
 import bigi.randomfilms.POJO.Example;
 import bigi.randomfilms.POJO2.ExampleJanr;
+import bigi.randomfilms.POJOjyrnal.ExampleJyrnal;
 import bigi.randomfilms.POJOrandom.ExampleRandom;
 import retrofit2.Call;
 import retrofit2.http.FormUrlEncoded;
@@ -23,4 +24,7 @@ public interface InterfFilm {
 
     @GET("genre/movie/list?api_key=ba8e8a114ce7fc27aa71ebec8c0b1afe&language=ru-RU")
     Call<ExampleJanr> EJanr();
+    @GET("genre/{id}/movies?api_key=ba8e8a114ce7fc27aa71ebec8c0b1afe&language=ru-RU")
+    Call<ExampleJyrnal> groupList(@Path("id") int grId);
+
 }

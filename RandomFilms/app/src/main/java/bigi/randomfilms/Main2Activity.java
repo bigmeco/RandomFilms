@@ -89,7 +89,7 @@ public class Main2Activity extends AppCompatActivity implements ListView.OnItemC
         }
         //Membuat Array Adapter for listview
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.listview_aktiv, items);
-        
+
 
         //setting adapter untuk listview
         listView.setAdapter(adapter);
