@@ -4,13 +4,13 @@
     <item
         android:id="@+id/action_top"
         android:icon="@android:drawable/ic_dialog_map"
-        android:title="" />
+        android:title="Топ" />
     <item
         android:id="@+id/action_random"
         android:icon="@android:drawable/ic_dialog_dialer"
-        android:title="" />
+        android:title="Рулетка" />
     <item
         android:id="@+id/action_user"
         android:icon="@android:drawable/ic_dialog_email"
-        android:title="" />
+        android:title="Пользователь" />
 </menu>

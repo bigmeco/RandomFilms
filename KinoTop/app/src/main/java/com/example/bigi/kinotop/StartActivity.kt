@@ -13,9 +13,9 @@ class StartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_start)
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId){
-                R.id.action_top-> transitionFragment(RandomFragment())
-                R.id.action_random->  transitionFragment(FilmTopFragment())
-                R.id.action_user->  transitionFragment(RandomFragment())
+                R.id.action_top-> transitionFragment(FilmTopFragment())
+                R.id.action_random->  transitionFragment(RandomFragment())
+                R.id.action_user->  transitionFragment(UserFragment())
             }
             true
         }
