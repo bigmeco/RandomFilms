@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f5d665b-5871-48b7-83fe-03dbe3ab58ca" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/KinoTop/app/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/.idea/misc.xml" afterPath="$PROJECT_DIR$/KinoTop/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/TopFilmAdapter.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/TopFilmAdapter.kt" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/list_top_layout.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/list_top_layout.xml" />
+      <change beforePath="$PROJECT_DIR$/RandomFilms/.idea/compiler.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/RandomFilms/.idea/copyright/profiles_settings.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/RandomFilms/.idea/dictionaries/bigi.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/RandomFilms/.idea/encodings.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/RandomFilms/.idea/gradle.xml" afterPath="$PROJECT_DIR$/RandomFilms/.idea/gradle.xml" />
+      <change beforePath="$PROJECT_DIR$/RandomFilms/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/RandomFilms/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/RandomFilms/.idea/misc.xml" afterPath="$PROJECT_DIR$/RandomFilms/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/RandomFilms/.idea/modules.xml" afterPath="$PROJECT_DIR$/RandomFilms/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/RandomFilms/.idea/runConfigurations.xml" afterPath="$PROJECT_DIR$/RandomFilms/.idea/runConfigurations.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,11 +53,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scratches" />
       <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -172,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523488119154</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="start">
+      <created>1523546203909</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523546203909</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
