@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:CircleProgressView="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserFragment">
+    android:gravity="top|center"
+    android:orientation="vertical"
+>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <at.grabner.circleprogress.CircleProgressView
+        android:id="@+id/circleView"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        CircleProgressView:cpv_autoTextSize="true"
+        CircleProgressView:cpv_barColor="#ed9301"
+        CircleProgressView:cpv_barWidth="8dp"
+        CircleProgressView:cpv_barStartEndLineColor="#acd9ac"
+        CircleProgressView:cpv_barColor1="#56ff0e"
+        CircleProgressView:cpv_maxValue="10"
+        CircleProgressView:cpv_rimColor="#2f000000"
+        CircleProgressView:cpv_rimWidth="8dp"
+        CircleProgressView:cpv_textScale="1.1"
+        CircleProgressView:cpv_outerContourSize="1dp"
+        CircleProgressView:cpv_innerContourSize="1dp"
+        CircleProgressView:cpv_innerContourColor="#1eababab"
+        CircleProgressView:cpv_outerContourColor="#1eababab"
+        CircleProgressView:cpv_autoTextColor="true"
+        CircleProgressView:cpv_value="6.4" />
+
+
+
+</LinearLayout>

@@ -18,7 +18,6 @@ class TopFilmAdapter(val items: ArrayList<TopFilmData>, val listener: (TopFilmDa
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: TopFilmData, listener: (TopFilmData) -> Unit) = with(itemView) {
-            textName.setText("gg")
             setOnClickListener { listener(item) }
         }
     }

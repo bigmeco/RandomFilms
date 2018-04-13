@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:CircleProgressView="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -32,24 +33,73 @@
                 android:id="@+id/textInfo"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:padding="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/space"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/poster"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
                 <TextView
                     android:id="@+id/textName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:layout_weight="1"
-                    android:text="TextView"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    android:gravity="center_horizontal"
+                    android:text="Первому игроку приготовиться "
+                    app:layout_constraintEnd_toStartOf="@+id/frameLayout"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <at.grabner.circleprogress.CircleProgressView
+                    android:id="@+id/circleView"
+                    android:layout_width="56dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="32dp"
+                    CircleProgressView:cpv_autoTextColor="true"
+                    CircleProgressView:cpv_autoTextSize="true"
+                    CircleProgressView:cpv_barColor="#ff8112"
+                    CircleProgressView:cpv_barColor1="#56ff0e"
+                    CircleProgressView:cpv_barStartEndLineColor="#acd9ac"
+                    CircleProgressView:cpv_barWidth="8dp"
+                    CircleProgressView:cpv_innerContourColor="#1eababab"
+                    CircleProgressView:cpv_innerContourSize="1dp"
+                    CircleProgressView:cpv_maxValue="10"
+                    CircleProgressView:cpv_outerContourColor="#1eababab"
+                    CircleProgressView:cpv_outerContourSize="1dp"
+                    CircleProgressView:cpv_rimColor="#2f000000"
+                    CircleProgressView:cpv_rimWidth="8dp"
+                    CircleProgressView:cpv_textScale="1.1"
+                    CircleProgressView:cpv_value="6.4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="Рейтинг"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/circleView"
+                    app:layout_constraintStart_toStartOf="@+id/circleView"
+                    app:layout_constraintTop_toBottomOf="@+id/circleView" />
+
+                <FrameLayout
+                    android:id="@+id/frameLayout"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_weight="0"
+                    android:background="?attr/colorButtonNormal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView"
+                    app:layout_constraintStart_toEndOf="@+id/textName"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -57,7 +107,7 @@
                 android:id="@+id/space"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:background="?android:attr/colorBackground"
+                android:background="@color/SpaceColor"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.4"
@@ -81,13 +131,13 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:scaleType="centerInside"
-                    app:srcCompat="@android:drawable/btn_star_big_on" />
+                    app:srcCompat="@drawable/heart_outline" />
 
                 <FrameLayout
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0"
-                    android:background="?android:attr/colorBackground"
+                    android:background="@color/SpaceColor"
                     app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.4"
@@ -100,13 +150,13 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:scaleType="centerInside"
-                    app:srcCompat="@android:drawable/btn_star" />
+                    app:srcCompat="@drawable/earth" />
 
                 <FrameLayout
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0"
-                    android:background="?android:attr/colorBackground"
+                    android:background="@color/SpaceColor"
                     app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.4"
@@ -119,7 +169,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:scaleType="centerInside"
-                    app:srcCompat="@android:drawable/btn_star_big_on" />
+                    app:srcCompat="@drawable/google_circles_extended" />
             </LinearLayout>
 
         </android.support.constraint.ConstraintLayout>
