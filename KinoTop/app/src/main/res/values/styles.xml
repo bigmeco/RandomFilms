@@ -6,6 +6,14 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@android:color/darker_gray</item>
+    </style>
+
+    <style name="CastomTheme" parent="AppTheme" >
+        <item name="colorAccent">@android:color/holo_green_light</item>
+        <item name="android:colorBackground">@color/globalBacgroundColor</item>
+        <item name="android:colorForeground">@android:color/white</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
     </style>
 
 </resources>
