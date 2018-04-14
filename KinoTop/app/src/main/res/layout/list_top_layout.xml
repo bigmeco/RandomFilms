@@ -47,16 +47,31 @@
                     android:id="@+id/textName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="16dp"
                     android:layout_weight="1"
                     android:text="The Godfather"
+                    CircleProgressView:layout_constraintBottom_toTopOf="@+id/spaceNonG"
                     app:layout_constraintEnd_toStartOf="@+id/frameLayout"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <FrameLayout
+                    android:id="@+id/spaceNonG"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="10dp"
+                    android:background="?attr/colorButtonNormal"
+                    CircleProgressView:layout_constraintBottom_toTopOf="@+id/textGenresView"
+                    CircleProgressView:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                    CircleProgressView:layout_constraintStart_toStartOf="parent"
+                    CircleProgressView:layout_constraintTop_toBottomOf="@+id/textName" />
+
                 <at.grabner.circleprogress.CircleProgressView
-                    android:id="@+id/circleView"
+                    android:id="@+id/ratingView"
                     android:layout_width="56dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -86,9 +101,9 @@
                     android:layout_marginBottom="24dp"
                     android:text="Рейтинг"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/circleView"
-                    app:layout_constraintStart_toStartOf="@+id/circleView"
-                    app:layout_constraintTop_toBottomOf="@+id/circleView" />
+                    app:layout_constraintEnd_toEndOf="@+id/ratingView"
+                    app:layout_constraintStart_toStartOf="@+id/ratingView"
+                    app:layout_constraintTop_toBottomOf="@+id/ratingView" />
 
                 <FrameLayout
                     android:id="@+id/frameLayout"
@@ -105,7 +120,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/textDataView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
@@ -122,24 +137,41 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="8dp"
                     android:text="Жанры:"
                     android:textSize="12sp"
+                    CircleProgressView:layout_constraintBottom_toBottomOf="@+id/textGenresView"
                     CircleProgressView:layout_constraintEnd_toStartOf="@+id/frameLayout"
                     CircleProgressView:layout_constraintHorizontal_bias="0.0"
                     CircleProgressView:layout_constraintStart_toStartOf="parent"
-                    CircleProgressView:layout_constraintTop_toBottomOf="@+id/textName" />
+                    CircleProgressView:layout_constraintTop_toTopOf="@+id/textGenresView" />
 
                 <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textGenresView"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:text="хоррор"
                     android:textSize="12sp"
-                    CircleProgressView:layout_constraintBottom_toBottomOf="@+id/textView4"
+                    CircleProgressView:layout_constraintBottom_toTopOf="@+id/spaceGonD"
+                    CircleProgressView:layout_constraintEnd_toStartOf="@+id/frameLayout"
+                    CircleProgressView:layout_constraintHorizontal_bias="0.0"
                     CircleProgressView:layout_constraintStart_toEndOf="@+id/textView4"
-                    CircleProgressView:layout_constraintTop_toTopOf="@+id/textView4" />
+                    CircleProgressView:layout_constraintTop_toBottomOf="@+id/spaceNonG" />
+
+                <FrameLayout
+                    android:id="@+id/spaceGonD"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="10dp"
+                    android:background="?attr/colorButtonNormal"
+                    CircleProgressView:layout_constraintBottom_toTopOf="@+id/textView6"
+                    CircleProgressView:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                    CircleProgressView:layout_constraintStart_toStartOf="parent"
+                    CircleProgressView:layout_constraintTop_toBottomOf="@+id/textGenresView" />
 
                 <TextView
                     android:id="@+id/textView6"
@@ -152,11 +184,10 @@
                     android:text="Дата выхода"
                     android:textSize="12sp"
                     CircleProgressView:layout_constraintBottom_toBottomOf="parent"
-                    CircleProgressView:layout_constraintEnd_toStartOf="@+id/textView3"
+                    CircleProgressView:layout_constraintEnd_toStartOf="@+id/textDataView"
                     CircleProgressView:layout_constraintHorizontal_bias="0.0"
                     CircleProgressView:layout_constraintStart_toStartOf="parent"
-                    CircleProgressView:layout_constraintTop_toBottomOf="@+id/textView4"
-                    CircleProgressView:layout_constraintVertical_bias="1.0" />
+                    CircleProgressView:layout_constraintTop_toBottomOf="@+id/spaceGonD" />
 
             </android.support.constraint.ConstraintLayout>
 

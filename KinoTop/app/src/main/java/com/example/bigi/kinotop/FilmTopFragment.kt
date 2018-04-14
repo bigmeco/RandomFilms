@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.bigi.kinotop.data.NewFilmData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.film_top_fragment.*
@@ -15,12 +16,6 @@ import kotlinx.android.synthetic.main.film_top_fragment.*
 class FilmTopFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var list = ArrayList<TopFilmData>()
-        list.add(TopFilmData("dd"))
-        list.add(TopFilmData("dd"))
-        list.add(TopFilmData("dd"))
-        list.add(TopFilmData("dd"))
-        list.add(TopFilmData("dd"))
 
         val repository = Service.getFilm()
 
@@ -29,12 +24,13 @@ class FilmTopFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .subscribe ({
                     result ->
+                    topFilmList.layoutManager = LinearLayoutManager(activity)
+                    topFilmList.adapter = TopFilmAdapter(result.results as List<NewFilmData>,{ (itam)->})
                     Log.d("Result", "There are ${result.results} ")
                 }, { error ->
                     error.printStackTrace()
                 })
-        topFilmList.layoutManager = LinearLayoutManager(activity)
-        topFilmList.adapter = TopFilmAdapter(list,{(itam)->})
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
