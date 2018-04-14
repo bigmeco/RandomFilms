@@ -1,5 +1,6 @@
 package com.example.bigi.kinotop
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +9,9 @@ import android.view.ViewGroup
 import com.example.bigi.kinotop.data.NewFilmData
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_top_layout.view.*
+import com.google.gson.Gson
+
+
 
 
 class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -> Unit) : RecyclerView.Adapter<TopFilmAdapter.ViewHolder>() {
@@ -22,13 +26,22 @@ class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: NewFilmData, listener: (NewFilmData) -> Unit) = with(itemView) {
             textName.text = item.title
-            ratingView.setValue(item.voteAverage!!)
+            ratingView.setValueAnimated(item.voteAverage!!,1500)
+            //ratingView.setValue(item.voteAverage!!)
             Picasso.with(context)
                     .load("https://image.tmdb.org/t/p/w500${item.posterPath}")
+                    .placeholder(R.drawable.in_progress)
                     .into(poster)
             textDataView.text = item.releaseDate
             textGenresView.text = continText(item.genreIds)
-            setOnClickListener { listener(item) }
+            setOnClickListener {
+                val intent = Intent(context,FullFilmActivity::class.java)
+                val gson = Gson()
+                gson.toJson(item)
+                Log.d("dd", gson.toString())
+                intent.putExtra("FILM_INFO", gson.toString())
+                context.startActivity(intent)
+            }
         }
     }
 }

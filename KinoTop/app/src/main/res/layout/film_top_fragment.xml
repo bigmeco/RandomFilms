@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:CircleProgressView="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,4 +17,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
+
+    <at.grabner.circleprogress.CircleProgressView
+        android:id="@+id/LoadingView"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="56dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        CircleProgressView:cpv_barWidth="8dp"
+        CircleProgressView:cpv_innerContourColor="#2f323232"
+        CircleProgressView:cpv_innerContourSize="1dp"
+        CircleProgressView:cpv_maxValue="100"
+        CircleProgressView:cpv_outerContourColor="#2f323232"
+        CircleProgressView:cpv_outerContourSize="1dp"
+        CircleProgressView:cpv_rimColor="#2f1b1b1b"
+        CircleProgressView:cpv_rimWidth="7dp"
+        CircleProgressView:cpv_spinColor="#004d40"
+        CircleProgressView:cpv_value="99"
+        CircleProgressView:layout_constraintTop_toTopOf="@+id/topFilmList"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/topFilmList"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

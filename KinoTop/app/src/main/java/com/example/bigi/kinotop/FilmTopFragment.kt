@@ -12,21 +12,24 @@ import com.example.bigi.kinotop.data.NewFilmData
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.film_top_fragment.*
+import at.grabner.circleprogress.TextMode
+import at.grabner.circleprogress.AnimationState
+import at.grabner.circleprogress.AnimationStateChangedListener
+
 
 class FilmTopFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val repository = Service.getFilm()
-
-        repository.listNewFilm()
+        LoadingView.spin()
+        Service.getFilm().listNewFilm()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe ({
-                    result ->
+                .subscribe({ result ->
+                    LoadingView.stopSpinning()
+                    LoadingView.visibility = View.INVISIBLE
                     topFilmList.layoutManager = LinearLayoutManager(activity)
-                    topFilmList.adapter = TopFilmAdapter(result.results as List<NewFilmData>,{ (itam)->})
-                    Log.d("Result", "There are ${result.results} ")
+                    topFilmList.adapter = TopFilmAdapter(result.results as List<NewFilmData>, { (item) -> })
                 }, { error ->
                     error.printStackTrace()
                 })

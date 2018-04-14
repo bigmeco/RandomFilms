@@ -5,9 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/KinoTop/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/KinoTop/.idea/caches/build_file_checksums.ser" />
       <change beforePath="$PROJECT_DIR$/KinoTop/app/build.gradle" afterPath="$PROJECT_DIR$/KinoTop/app/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/AndroidManifest.xml" />
       <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/FilmTopFragment.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/FilmTopFragment.kt" />
       <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/TopFilmAdapter.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/TopFilmAdapter.kt" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/TopFilmData.kt" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/drawable/vv.jpg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/film_top_fragment.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/film_top_fragment.xml" />
       <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/list_top_layout.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/list_top_layout.xml" />
     </list>
@@ -47,10 +48,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -204,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1523651307662</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="finish retrofit">
+      <created>1523706843413</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1523706843413</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix ui">
+      <created>1523707608511</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1523707608511</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -241,7 +256,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="start" />
     <MESSAGE value="start retrofit" />
-    <option name="LAST_COMMIT_MESSAGE" value="start retrofit" />
+    <MESSAGE value="finish retrofit" />
+    <MESSAGE value="fix ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix ui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

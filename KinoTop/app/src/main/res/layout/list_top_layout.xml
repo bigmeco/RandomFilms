@@ -31,7 +31,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/vv" />
+                app:srcCompat="@drawable/in_progress" />
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/textInfo"
