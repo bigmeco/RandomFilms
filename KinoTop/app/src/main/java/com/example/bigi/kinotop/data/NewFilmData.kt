@@ -35,7 +35,7 @@ data class NewFilmData(
 	val voteAverage: Float? = null,
 
 	@field:SerializedName("popularity")
-	val popularity: Double? = null,
+	val popularity: Float? = null,
 
 	@field:SerializedName("id")
 	val id: Int? = null,

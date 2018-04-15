@@ -90,8 +90,8 @@
                     CircleProgressView:cpv_outerContourSize="1dp"
                     CircleProgressView:cpv_rimColor="#2f000000"
                     CircleProgressView:cpv_rimWidth="8dp"
-                    CircleProgressView:cpv_textScale="1.1"
-                    CircleProgressView:cpv_value="6.4"
+                    CircleProgressView:cpv_textScale="1"
+                    CircleProgressView:cpv_value="0.0"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -139,7 +139,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
-                    android:text="Жанры:"
+                    android:text="@string/genres"
                     android:textSize="12sp"
                     CircleProgressView:layout_constraintBottom_toBottomOf="@+id/textGenresView"
                     CircleProgressView:layout_constraintEnd_toStartOf="@+id/frameLayout"
@@ -183,7 +183,7 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:text="Дата выхода"
+                    android:text="@string/release_date"
                     android:textSize="12sp"
                     CircleProgressView:layout_constraintBottom_toBottomOf="parent"
                     CircleProgressView:layout_constraintEnd_toStartOf="@+id/textDataView"
