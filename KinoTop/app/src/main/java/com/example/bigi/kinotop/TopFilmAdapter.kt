@@ -29,7 +29,7 @@ class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -
             ratingView.setValueAnimated(item.voteAverage!!,1500)
             //ratingView.setValue(item.voteAverage!!)
             Picasso.with(context)
-                    .load("https://image.tmdb.org/t/p/w500${item.posterPath}")
+                    .load("https://image.tmdb.org/t/p/w400${item.posterPath}")
                     .placeholder(R.drawable.in_progress)
                     .into(poster)
             textDataView.text = item.releaseDate

@@ -1,13 +1,11 @@
 package com.example.bigi.kinotop
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import com.example.bigi.kinotop.data.NewFilmData
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_scrolling.*
-import kotlinx.android.synthetic.main.list_top_layout.view.*
 
 class FullFilmActivity : AppCompatActivity() {
 
@@ -25,7 +23,7 @@ class FullFilmActivity : AppCompatActivity() {
                 .placeholder(R.drawable.in_progress)
                 .into(poster)
         Picasso.with(this)
-                .load("https://image.tmdb.org/t/p/w500${item.backdropPath}")
+                .load("https://image.tmdb.org/t/p/original${item.backdropPath}")
                 .placeholder(R.color.colorPrimaryDark)
                 .into(screanFilm)
         textDataView.text = item.releaseDate

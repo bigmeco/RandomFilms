@@ -4,8 +4,9 @@
     <list default="true" id="1f5d665b-5871-48b7-83fe-03dbe3ab58ca" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/FullFilmActivity.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/FullFilmActivity.kt" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/StartActivity.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/StartActivity.kt" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/activity_scrolling.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/activity_scrolling.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/TopFilmAdapter.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/TopFilmAdapter.kt" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/menu/menu_bottom_navigation.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/menu/menu_bottom_navigation.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,11 +44,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -235,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523798131504</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix activity">
+      <created>1523800248937</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1523800248938</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -276,7 +284,8 @@
     <MESSAGE value="fix ui" />
     <MESSAGE value="test intent" />
     <MESSAGE value="start new activity" />
-    <option name="LAST_COMMIT_MESSAGE" value="start new activity" />
+    <MESSAGE value="fix activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix activity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
