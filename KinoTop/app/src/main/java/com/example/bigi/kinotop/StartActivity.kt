@@ -11,6 +11,7 @@ class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
+        transitionFragment(FilmTopFragment())
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId){
                 R.id.action_top-> transitionFragment(FilmTopFragment())

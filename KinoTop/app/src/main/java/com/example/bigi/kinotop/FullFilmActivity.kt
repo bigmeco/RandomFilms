@@ -18,8 +18,8 @@ class FullFilmActivity : AppCompatActivity() {
         val item: NewFilmData = Gson().fromJson(filelist, NewFilmData::class.java)
 
         nameFilmText.text = item.title
-        ratingView.setValueAnimated(item.voteAverage!!,1500)
-        popularityView.setValueAnimated(item.popularity!!,1500)
+        ratingView.setValueAnimated(item.voteAverage!!, 1500)
+        popularityView.setValueAnimated(item.popularity!!, 1500)
         Picasso.with(this)
                 .load("https://image.tmdb.org/t/p/w500${item.posterPath}")
                 .placeholder(R.drawable.in_progress)
