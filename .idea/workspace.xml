@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f5d665b-5871-48b7-83fe-03dbe3ab58ca" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/FullFilmActivity.kt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/drawable/in_progress.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/activity_scrolling.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/menu/menu_scrolling.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/values/dimens.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/KinoTop/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/KinoTop/.idea/caches/build_file_checksums.ser" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/build.gradle" afterPath="$PROJECT_DIR$/KinoTop/app/build.gradle" />
       <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/FilmTopFragment.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/FilmTopFragment.kt" />
       <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/TopFilmAdapter.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/TopFilmAdapter.kt" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/drawable/vv.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/film_top_fragment.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/film_top_fragment.xml" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/list_top_layout.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/list_top_layout.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/values/strings.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/values/styles.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,10 +30,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="x" value="-7" />
+    <option name="y" value="2" />
+    <option name="width" value="1932" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectView">
     <navigator currentView="AndroidView" proportions="" version="1">
@@ -48,11 +50,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="AndroidView" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -219,11 +221,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523707608511</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="test intent">
+      <created>1523725791556</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1523725791557</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="0" />
+    <frame x="-7" y="2" width="1932" height="1055" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -235,7 +244,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.250264" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -258,7 +267,8 @@
     <MESSAGE value="start retrofit" />
     <MESSAGE value="finish retrofit" />
     <MESSAGE value="fix ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix ui" />
+    <MESSAGE value="test intent" />
+    <option name="LAST_COMMIT_MESSAGE" value="test intent" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

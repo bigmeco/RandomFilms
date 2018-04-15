@@ -38,8 +38,8 @@ class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -
                 val intent = Intent(context,FullFilmActivity::class.java)
                 val gson = Gson()
                 gson.toJson(item)
-                Log.d("dd", gson.toString())
-                intent.putExtra("FILM_INFO", gson.toString())
+                Log.d("dd",gson.toJson(item))
+                intent.putExtra("FILM_INFO", gson.toJson(item))
                 context.startActivity(intent)
             }
         }

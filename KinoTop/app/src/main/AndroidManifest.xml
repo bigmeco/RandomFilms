@@ -20,7 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FullFilmActivity"></activity>
+        <activity
+            android:name=".FullFilmActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/CastomTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
