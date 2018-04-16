@@ -14,4 +14,6 @@
     <string name="new_icon">Новинки</string>
     <string name="roulette">Рулетка</string>
     <string name="storage">Тайник</string>
+    <string name="rating">Рейтинг</string>
+    <string name="popularity">Слава</string>
 </resources>

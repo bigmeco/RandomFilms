@@ -1,17 +1,320 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:CircleProgressView="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="54dp"
     tools:context=".RandomFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="128dp" />
-</android.support.constraint.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="12dp"
+            android:paddingTop="8dp">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/genresView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="14dp"
+                android:layout_marginStart="14dp"
+                CircleProgressView:layout_constraintVertical_bias="0.0"
+                app:cardBackgroundColor="@color/CardColor"
+                app:cardElevation="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/fabSpace"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp" />
+            </android.support.v7.widget.CardView>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/fabSpace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/genresView">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/filmView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="18dp"
+                    CircleProgressView:layout_constraintTop_toTopOf="parent"
+                    app:cardBackgroundColor="@color/CardColor"
+                    app:cardElevation="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <FrameLayout
+                            android:id="@+id/spaceGonD"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:background="?attr/colorButtonNormal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/backgroundImageView" />
+
+                        <ImageView
+                            android:id="@+id/backgroundImageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/defaultes"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <android.support.v7.widget.CardView
+                            android:id="@+id/cardView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="126dp"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
+                            app:cardElevation="4dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/posterView"
+                                android:layout_width="124dp"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/in_progress" />
+                        </android.support.v7.widget.CardView>
+
+                        <FrameLayout
+                            android:id="@+id/frameLayout2"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@color/background_image"
+                            app:layout_constraintBottom_toBottomOf="@+id/backgroundImageView"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/backgroundImageView">
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/textNameView"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:gravity="bottom"
+                            android:text="@string/loading"
+                            android:textColor="@color/SpaceColor"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/frameLayout2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/cardView5"
+                            app:layout_constraintTop_toTopOf="@+id/cardView5" />
+
+                        <TextView
+                            android:id="@+id/textGenresView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/genres"
+                            CircleProgressView:layout_constraintEnd_toEndOf="@+id/spaceGonD"
+                            CircleProgressView:layout_constraintStart_toEndOf="@+id/cardView5"
+                            CircleProgressView:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+                        <at.grabner.circleprogress.CircleProgressView
+                            android:id="@+id/popularityView"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="8dp"
+                            CircleProgressView:cpv_autoTextColor="true"
+                            CircleProgressView:cpv_autoTextSize="true"
+                            CircleProgressView:cpv_barColor="#edc201"
+                            CircleProgressView:cpv_barColor1="#46ff0e"
+                            CircleProgressView:cpv_barStartEndLineColor="#acd9ac"
+                            CircleProgressView:cpv_barWidth="8dp"
+                            CircleProgressView:cpv_innerContourColor="#1eababab"
+                            CircleProgressView:cpv_innerContourSize="1dp"
+                            CircleProgressView:cpv_maxValue="550"
+                            CircleProgressView:cpv_outerContourColor="#1eababab"
+                            CircleProgressView:cpv_outerContourSize="1dp"
+                            CircleProgressView:cpv_rimColor="#2f000000"
+                            CircleProgressView:cpv_rimWidth="8dp"
+                            CircleProgressView:cpv_textMode="Value"
+                            CircleProgressView:cpv_textScale="1.1"
+                            CircleProgressView:cpv_value="0"
+                            CircleProgressView:layout_constraintEnd_toEndOf="parent"
+                            CircleProgressView:layout_constraintStart_toEndOf="@+id/ratingView"
+                            CircleProgressView:layout_constraintTop_toTopOf="@+id/ratingView" />
+
+
+                        <at.grabner.circleprogress.CircleProgressView
+                            android:id="@+id/ratingView"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="4dp"
+                            CircleProgressView:cpv_autoTextColor="true"
+                            CircleProgressView:cpv_autoTextSize="true"
+                            CircleProgressView:cpv_barColor="#ed9301"
+                            CircleProgressView:cpv_barColor1="#56ff0e"
+                            CircleProgressView:cpv_barStartEndLineColor="#acd9ac"
+                            CircleProgressView:cpv_barWidth="8dp"
+                            CircleProgressView:cpv_innerContourColor="#1eababab"
+                            CircleProgressView:cpv_innerContourSize="1dp"
+                            CircleProgressView:cpv_maxValue="10"
+                            CircleProgressView:cpv_outerContourColor="#1eababab"
+                            CircleProgressView:cpv_outerContourSize="1dp"
+                            CircleProgressView:cpv_rimColor="#2f000000"
+                            CircleProgressView:cpv_rimWidth="8dp"
+                            CircleProgressView:cpv_textScale="1"
+                            CircleProgressView:cpv_value="0.0"
+                            CircleProgressView:layout_constraintEnd_toStartOf="@+id/popularityView"
+                            CircleProgressView:layout_constraintStart_toEndOf="@+id/cardView5"
+                            CircleProgressView:layout_constraintTop_toBottomOf="@+id/spaceGonD" />
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/rating"
+                            CircleProgressView:layout_constraintBottom_toBottomOf="parent"
+                            CircleProgressView:layout_constraintEnd_toEndOf="@+id/ratingView"
+                            CircleProgressView:layout_constraintStart_toStartOf="@+id/ratingView"
+                            CircleProgressView:layout_constraintTop_toBottomOf="@+id/ratingView"
+                            CircleProgressView:layout_constraintVertical_bias="0.0" />
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/popularity"
+                            CircleProgressView:layout_constraintEnd_toEndOf="@+id/popularityView"
+                            CircleProgressView:layout_constraintStart_toStartOf="@+id/popularityView"
+                            CircleProgressView:layout_constraintTop_toBottomOf="@+id/popularityView" />
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_horizontal"
+                            android:text="@string/release_date"
+                            CircleProgressView:layout_constraintEnd_toEndOf="@+id/cardView5"
+                            CircleProgressView:layout_constraintStart_toStartOf="@+id/cardView5"
+                            CircleProgressView:layout_constraintTop_toBottomOf="@+id/cardView5" />
+
+                        <TextView
+                            android:id="@+id/textDataView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="8dp"
+                            android:gravity="center_horizontal"
+                            android:text="@string/loading"
+                            CircleProgressView:layout_constraintEnd_toEndOf="@+id/textView9"
+                            CircleProgressView:layout_constraintStart_toStartOf="@+id/textView9"
+                            CircleProgressView:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+                        <FrameLayout
+                            android:id="@+id/spaceDonI"
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="16dp"
+                            android:background="?attr/colorButtonNormal"
+                            CircleProgressView:layout_constraintBottom_toTopOf="@+id/textInfoView"
+                            CircleProgressView:layout_constraintTop_toBottomOf="@+id/textGenresView"
+                            CircleProgressView:layout_constraintVertical_bias="0.0"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textInfoView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="12dp"
+                            android:text="@string/loading"
+                            CircleProgressView:layout_constraintBottom_toBottomOf="parent"
+                            CircleProgressView:layout_constraintEnd_toEndOf="parent"
+                            CircleProgressView:layout_constraintStart_toStartOf="parent"
+                            CircleProgressView:layout_constraintTop_toBottomOf="@+id/spaceDonI" />
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/floatingLike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginTop="4dp"
+                    android:clickable="true"
+                    android:src="@drawable/heart_outline"
+                    CircleProgressView:backgroundTint="@color/SpaceColor"
+                    CircleProgressView:fabSize="mini"
+                    CircleProgressView:layout_constraintEnd_toEndOf="parent"
+                    CircleProgressView:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/floatingRepit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:clickable="true"
+                    android:src="@drawable/cached"
+                    CircleProgressView:fabSize="mini"
+                    CircleProgressView:layout_constraintStart_toStartOf="parent"
+                    CircleProgressView:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>

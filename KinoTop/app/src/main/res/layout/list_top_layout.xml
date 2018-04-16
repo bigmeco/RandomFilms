@@ -100,7 +100,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginBottom="24dp"
-                    android:text="Рейтинг"
+                    android:text="@string/rating"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/ratingView"
                     app:layout_constraintStart_toStartOf="@+id/ratingView"

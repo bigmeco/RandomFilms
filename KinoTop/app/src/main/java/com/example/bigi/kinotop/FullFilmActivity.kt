@@ -24,7 +24,7 @@ class FullFilmActivity : AppCompatActivity() {
                 .into(poster)
         Picasso.with(this)
                 .load("https://image.tmdb.org/t/p/original${item.backdropPath}")
-                .placeholder(R.color.colorPrimaryDark)
+                .placeholder(R.drawable.defaultes)
                 .into(screanFilm)
         textDataView.text = item.releaseDate
         textGenresView.text = continText(item.genreIds)
