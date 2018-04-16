@@ -95,7 +95,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             android:layout_marginStart="16dp"
-                            android:layout_marginTop="126dp"
+                            CircleProgressView:layout_constraintBottom_toBottomOf="@+id/textView10"
+                            CircleProgressView:layout_constraintVertical_bias="1.0"
                             app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="4dp"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -128,7 +129,6 @@
                             android:id="@+id/textNameView"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-
                             android:layout_marginBottom="8dp"
                             android:layout_marginEnd="16dp"
                             android:layout_marginStart="8dp"
@@ -149,11 +149,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
                             android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
                             android:text="@string/genres"
                             CircleProgressView:layout_constraintEnd_toEndOf="@+id/spaceGonD"
                             CircleProgressView:layout_constraintStart_toEndOf="@+id/cardView5"
-                            CircleProgressView:layout_constraintTop_toBottomOf="@+id/textView10" />
+                            CircleProgressView:layout_constraintTop_toTopOf="@+id/textView9" />
 
                         <at.grabner.circleprogress.CircleProgressView
                             android:id="@+id/popularityView"
@@ -213,7 +212,6 @@
                             android:id="@+id/textView10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
                             android:layout_marginEnd="8dp"
                             android:layout_marginStart="8dp"
                             android:text="@string/rating"
@@ -240,7 +238,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
                             android:layout_marginStart="8dp"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="8dp"
                             android:gravity="center_horizontal"
                             android:text="@string/release_date"
                             CircleProgressView:layout_constraintEnd_toEndOf="@+id/cardView5"
