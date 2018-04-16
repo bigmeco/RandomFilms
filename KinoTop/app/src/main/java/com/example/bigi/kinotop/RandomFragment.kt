@@ -6,6 +6,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.fragment_random.*
@@ -25,6 +27,12 @@ class RandomFragment : Fragment() {
                  floatingRepit.setOnClickListener { Log.d("ggg",position.toString()) }
                  if (position==0) {
                      floatingRepit.setOnClickListener { Log.d("fff",position.toString())
+                         val animOld = AnimationUtils.loadAnimation(activity,R.anim.repit_film)
+                         fabSpace.setInAnimation(animOld)
+                         animOld.
+                         val animNew = AnimationUtils.loadAnimation(activity,R.anim.rept_new_film)
+
+                         fabSpace.startAnimation(animNew)
 
                      }
                  }
