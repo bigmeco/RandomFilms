@@ -3,7 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="1f5d665b-5871-48b7-83fe-03dbe3ab58ca" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/KinoTop/.idea/caches/build_file_checksums.ser" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/.idea/gradle.xml" afterPath="$PROJECT_DIR$/KinoTop/.idea/gradle.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/.idea/misc.xml" afterPath="$PROJECT_DIR$/KinoTop/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/.idea/modules.xml" afterPath="$PROJECT_DIR$/KinoTop/.idea/modules.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/.idea/runConfigurations.xml" afterPath="$PROJECT_DIR$/KinoTop/.idea/runConfigurations.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/GetFilm.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/GetFilm.kt" />
       <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/RandomFragment.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/RandomFragment.kt" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/anim/repit_film.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/anim/repit_film.xml" />
+      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/anim/rept_new_film.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/anim/rept_new_film.xml" />
       <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/fragment_random.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/fragment_random.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,16 +52,16 @@
     <panes>
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/RandomFilms" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/KinoTop" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

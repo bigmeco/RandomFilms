@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="54dp"
     tools:context=".RandomFragment">
 
 
@@ -16,9 +15,8 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingBottom="12dp"
             android:paddingTop="4dp">
 
             <android.support.v7.widget.CardView
@@ -28,6 +26,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="14dp"
                 android:layout_marginStart="14dp"
+                android:layout_marginTop="14dp"
                 CircleProgressView:layout_constraintVertical_bias="0.0"
                 app:cardBackgroundColor="@color/colorPrimaryDark"
                 app:cardElevation="4dp"
@@ -47,6 +46,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:paddingBottom="56dp"
+                CircleProgressView:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/genresView">
 
                 <android.support.v7.widget.CardView
@@ -291,12 +292,12 @@
                     android:layout_marginEnd="4dp"
                     android:layout_marginTop="4dp"
                     android:clickable="true"
+                    android:focusable="true"
                     android:src="@drawable/heart_outline"
                     CircleProgressView:backgroundTint="@color/SpaceColor"
                     CircleProgressView:fabSize="mini"
                     CircleProgressView:layout_constraintEnd_toEndOf="parent"
-                    CircleProgressView:layout_constraintTop_toTopOf="parent"
-                    android:focusable="true" />
+                    CircleProgressView:layout_constraintTop_toTopOf="parent" />
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/floatingRepit"
@@ -304,12 +305,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="4dp"
-                    android:src="@drawable/cached"
                     android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/cached"
                     CircleProgressView:fabSize="mini"
                     CircleProgressView:layout_constraintStart_toStartOf="parent"
-                    CircleProgressView:layout_constraintTop_toTopOf="parent"
-                    android:focusable="true" />
+                    CircleProgressView:layout_constraintTop_toTopOf="parent" />
 
             </android.support.constraint.ConstraintLayout>
 
