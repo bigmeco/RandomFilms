@@ -26,20 +26,21 @@ class RandomFragment : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requesRrandomFilm()
+        requesRrandomFilm(false)
         spinner.adapter = ArrayAdapter<String>(activity, R.layout.list_genre, continText())
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                floatingRepit.setOnClickListener { Log.d("ggg", position.toString())
+                floatingRepit.setOnClickListener {
+                    Log.d("ggg", position.toString())
                     val random = Random()
-                    Service.getFilm().randomGenresFilm(random.nextInt(999)+1,16)
+                    Service.getFilm().randomGenresFilm(random.nextInt(999) + 1, 16)
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribeOn(Schedulers.io())
                             .subscribe({ result ->
-//                                val randomRezult = result.results!!.get(random.nextInt(19)+1)!!
+                                //                                val randomRezult = result.results!!.get(random.nextInt(19)+1)!!
 //                                Picasso.with(activity)
 //                                        .load("https://image.tmdb.org/t/p/w500${randomRezult.posterPath}")
 //                                        .placeholder(R.drawable.in_progress)
@@ -56,19 +57,18 @@ class RandomFragment : Fragment() {
 //                                textInfoView.text = randomRezult.overview
 
 
-
                             }, { error ->
                                 error.printStackTrace()
                             })
-
 
 
                 }
                 if (position == 0) {
                     floatingRepit.setOnClickListener {
                         Log.d("fff", position.toString())
+                        requesRrandomFilm(true)
                         changeFilm()
-                        requesRrandomFilm()
+
                     }
                 }
             }
@@ -99,39 +99,44 @@ class RandomFragment : Fragment() {
 
     private fun changeFilm() {
         val animOld = AnimationUtils.loadAnimation(activity, R.anim.repit_film)
-        val animNew = AnimationUtils.loadAnimation(activity, R.anim.rept_new_film)
         fabSpace.startAnimation(animOld)
         animOld.setAnimationListener(object : AnimationListener {
             override fun onAnimationStart(anim: Animation) {}
             override fun onAnimationRepeat(anim: Animation) {}
             override fun onAnimationEnd(anim: Animation) {
-                fabSpace.startAnimation(animNew)
+                fabSpace.visibility = View.INVISIBLE
             }
         })
+
     }
 
-    private fun requesRrandomFilm() {
+    private fun requesRrandomFilm(newOpen: Boolean) {
         val random = Random()
-        Service.getFilm().randomFilm(random.nextInt(999)+1)
+        val animNew = AnimationUtils.loadAnimation(activity, R.anim.rept_new_film)
+
+        Service.getFilm().randomFilm(random.nextInt(999) + 1)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({ result ->
-                    val randomRezult = result.results!!.get(random.nextInt(19)+1)!!
-                    Picasso.with(activity)
-                            .load("https://image.tmdb.org/t/p/w500${randomRezult.posterPath}")
-                            .placeholder(R.drawable.in_progress)
-                            .into(posterView)
-                    Picasso.with(activity)
-                            .load("https://image.tmdb.org/t/p/original${randomRezult.backdropPath}")
-                            .placeholder(R.drawable.defaultes)
-                            .into(backgroundImageView)
+                    val randomRezult = result.results!!.get(random.nextInt(19))!!
                     textNameView.text = randomRezult.title
                     textDataView.text = randomRezult.releaseDate
-                    ratingView.setValueAnimated(randomRezult.voteAverage!!,1500)
+                    ratingView.setValueAnimated(randomRezult.voteAverage!!, 1500)
                     popularityView.setValueAnimated(randomRezult.popularity!!, 1500)
                     textGenresView.text = "Жанры: ${continText(randomRezult.genreIds)}"
                     textInfoView.text = randomRezult.overview
-
+                    if (newOpen) {
+                        fabSpace.startAnimation(animNew)
+                        fabSpace.visibility = View.VISIBLE
+                    }
+                    Picasso.with(activity)
+                            .load("https://image.tmdb.org/t/p/w400${randomRezult.posterPath}")
+                            .placeholder(R.drawable.in_progress)
+                            .into(posterView)
+                    Picasso.with(activity)
+                            .load("https://image.tmdb.org/t/p/w500${randomRezult.backdropPath}")
+                            .placeholder(R.drawable.defaultes)
+                            .into(backgroundImageView)
 
 
                 }, { error ->
@@ -139,7 +144,6 @@ class RandomFragment : Fragment() {
                 })
 
     }
-
 
 
 }
