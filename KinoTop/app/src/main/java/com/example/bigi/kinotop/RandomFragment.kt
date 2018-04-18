@@ -35,33 +35,8 @@ class RandomFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, viewv: View?, position: Int, id: Long) {
                 floatingRepit.setOnClickListener {
                     Log.d("ggg", parent!!.getItemAtPosition(position).toString())
-                    val random = Random()
-                    Service.getFilm().randomGenresFilm(
-                            random.nextInt(continGenre(parent.getItemAtPosition(position).toString()).get(0)) + 1,
-                            continGenre(parent.getItemAtPosition(position).toString()).get(1))
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribeOn(Schedulers.io())
-                            .subscribe({ result ->
-                                val randomRezult = result.results!!.get(random.nextInt(19) + 1)!!
-                                Picasso.with(activity)
-                                        .load("https://image.tmdb.org/t/p/w500${randomRezult.posterPath}")
-                                        .placeholder(R.drawable.in_progress)
-                                        .into(posterView)
-                                Picasso.with(activity)
-                                        .load("https://image.tmdb.org/t/p/original${randomRezult.backdropPath}")
-                                        .placeholder(R.drawable.defaultes)
-                                        .into(backgroundImageView)
-                                textNameView.text = randomRezult.title
-                                textDataView.text = randomRezult.releaseDate
-                                ratingView.setValueAnimated(randomRezult.voteAverage!!, 1500)
-                                popularityView.setValueAnimated(randomRezult.popularity!!, 1500)
-                                textGenresView.text = "Жанры: ${continText()}"
-                                textInfoView.text = randomRezult.overview
-
-                            }, { error ->
-                                error.printStackTrace()
-                            })
-
+                    requesRrandomGenreFilm(parent,position)
+                    changeFilm()
 
                 }
                 if (position == 0) {
@@ -98,19 +73,17 @@ class RandomFragment : Fragment() {
     }
 
     fun continGenre(genre: String): Array<Int> {
-        var i = arrayOf(100,16)
+        var i = arrayOf(100, 16)
         for (id in GenreList.values()) {
             if (id.names == genre) {
                 i[0] = id.sizes
                 i[1] = id.id
-                Log.d("ggg",GenreList.valueOf(id.name).toString())
+                Log.d("ggg", GenreList.valueOf(id.name).toString())
 
             }
         }
         return i
     }
-
-
 
 
     private fun changeFilm() {
@@ -139,7 +112,7 @@ class RandomFragment : Fragment() {
                     textDataView.text = randomRezult.releaseDate
                     ratingView.setValueAnimated(randomRezult.voteAverage!!, 1500)
                     popularityView.setValueAnimated(randomRezult.popularity!!, 1500)
-                    textGenresView.text = "Жанры: ${continText()}"
+                    textGenresView.text = "Жанры: ${continText(randomRezult.genreIds)}"
                     textInfoView.text = randomRezult.overview
                     if (newOpen) {
                         fabSpace.startAnimation(animNew)
@@ -153,11 +126,46 @@ class RandomFragment : Fragment() {
                             .load("https://image.tmdb.org/t/p/w500${randomRezult.backdropPath}")
                             .placeholder(R.drawable.defaultes)
                             .into(backgroundImageView)
-
-
                 }, { error ->
                     error.printStackTrace()
                 })
+
+    }
+
+    private fun requesRrandomGenreFilm(parent: AdapterView<*>?, position: Int) {
+        val random = Random()
+        val animNew = AnimationUtils.loadAnimation(activity, R.anim.rept_new_film)
+        if (parent != null) {
+            Service.getFilm().randomGenresFilm(
+                    random.nextInt(
+                            continGenre(parent.getItemAtPosition(position).toString()).get(0)) + 1,
+                    continGenre(parent.getItemAtPosition(position).toString()).get(1))
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe({ result ->
+                            fabSpace.startAnimation(animNew)
+                            fabSpace.visibility = View.VISIBLE
+                        val randomRezult = result.results!!.get(random.nextInt(19) + 1)!!
+                        Picasso.with(activity)
+                                .load("https://image.tmdb.org/t/p/w500${randomRezult.posterPath}")
+                                .placeholder(R.drawable.in_progress)
+                                .into(posterView)
+                        Picasso.with(activity)
+                                .load("https://image.tmdb.org/t/p/original${randomRezult.backdropPath}")
+                                .placeholder(R.drawable.defaultes)
+                                .into(backgroundImageView)
+                        textNameView.text = randomRezult.title
+                        textDataView.text = randomRezult.releaseDate
+                        ratingView.setValueAnimated(randomRezult.voteAverage!!, 1500)
+                        popularityView.setValueAnimated(randomRezult.popularity!!, 1500)
+                        textGenresView.text = "Жанры: ${continText(randomRezult.genreIds)}"
+                        textInfoView.text = randomRezult.overview
+
+                    }, { error ->
+                        error.printStackTrace()
+                    })
+        }
+
 
     }
 
