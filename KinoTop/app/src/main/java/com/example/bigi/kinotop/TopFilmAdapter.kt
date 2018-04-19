@@ -26,14 +26,36 @@ class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: NewFilmData, listener: (NewFilmData) -> Unit) = with(itemView) {
             val realm: Realm = Realm.getDefaultInstance()
-            if (realm.where(MyFilm::class.java).equalTo("id", item.id).findAll().size == 0) {
-                like.setOnClickListener{
-
+            if (realm.where(MyFilm::class.java).equalTo("id", item.id.toString()).findAll().size == 0) {
+                like.setImageResource(R.drawable.heart_outline)
+                like.setOnClickListener {
+                    like.setImageResource(R.drawable.heart)
+                    val newLoveFilm = MyFilm()
+                    newLoveFilm.title = item.title
+                    newLoveFilm.voteCount = item.voteCount
+                    newLoveFilm.id = item.id.toString()
+                    newLoveFilm.video = item.video
+                    newLoveFilm.voteAverage = item.voteAverage
+                    newLoveFilm.popularity = item.popularity
+                    newLoveFilm.posterPath = item.posterPath
+                    newLoveFilm.originalLanguage = item.originalLanguage
+                    newLoveFilm.originalTitle = item.originalTitle
+                    newLoveFilm.genreIds = "Жанры: ${continText(item.genreIds)}"
+                    newLoveFilm.backdropPath = item.backdropPath
+                    newLoveFilm.adult = item.adult
+                    newLoveFilm.overview = item.overview
+                    newLoveFilm.releaseDate = item.releaseDate
+                    realm.executeTransaction { realm ->
+                        realm.insert(newLoveFilm)
+                    }
                 }
             } else {
                 like.setImageResource(R.drawable.heart)
-                like.setOnClickListener{
-
+                like.setOnClickListener {
+                    realm.executeTransaction { realm ->
+                        realm.where(MyFilm::class.java).equalTo("id", item.id.toString()).findFirst()!!.deleteFromRealm()
+                    }
+                    like.setImageResource(R.drawable.heart_outline)
                 }
             }
 

@@ -18,7 +18,6 @@ import com.squareup.picasso.Picasso
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import io.realm.Realm
-import io.realm.annotations.PrimaryKey
 import java.util.*
 
 
@@ -156,7 +155,7 @@ class RandomFragment : Fragment() {
                 val newLoveFilm = MyFilm()
                 newLoveFilm.title = randomRezult.title
                 newLoveFilm.voteCount = randomRezult.voteCount
-                newLoveFilm.id = randomRezult.id
+                newLoveFilm.id = randomRezult.id.toString()
                 newLoveFilm.video = randomRezult.video
                 newLoveFilm.voteAverage = randomRezult.voteAverage
                 newLoveFilm.popularity = randomRezult.popularity
@@ -175,7 +174,6 @@ class RandomFragment : Fragment() {
                 if (position == 0) {
                     requesRrandomFilm(true)
                     changeFilm()
-
                 } else {
                     requesRrandomGenreFilm(parent, position)
                     changeFilm()
@@ -188,11 +186,9 @@ class RandomFragment : Fragment() {
                     realm.where(MyFilm::class.java).equalTo("id", randomRezult.id).findFirst()!!.deleteFromRealm()
                 }
                 floatingLike.setImageResource(R.drawable.heart_outline)
-
                 if (position == 0) {
                     requesRrandomFilm(true)
                     changeFilm()
-
                 } else {
                     requesRrandomGenreFilm(parent, position)
                     changeFilm()
