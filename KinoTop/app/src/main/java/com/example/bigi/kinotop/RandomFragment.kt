@@ -31,10 +31,27 @@ class RandomFragment : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
+            var i = 1
             override fun onItemSelected(parent: AdapterView<*>?, viewv: View?, position: Int, id: Long) {
                 spinnerOnClick(parent, position)
+                if (i > 1) {
+                    spinnerGenreClick(parent, position)
+                }
+                i++
             }
         }
+    }
+
+    fun spinnerGenreClick(parent: AdapterView<*>?, position: Int) {
+        Log.d("ggg", parent!!.getItemAtPosition(position).toString())
+        requesRrandomGenreFilm(parent, position)
+        changeFilm()
+        if (position == 0) {
+            Log.d("fff", position.toString())
+            requesRrandomFilm(true)
+            changeFilm()
+        }
+
     }
 
     fun spinnerOnClick(parent: AdapterView<*>?, position: Int) {
@@ -148,7 +165,7 @@ class RandomFragment : Fragment() {
 
 
         val realm: Realm = Realm.getDefaultInstance()
-        if (realm.where(MyFilm::class.java).equalTo("id", randomRezult.id).findAll().size == 0) {
+        if (realm.where(MyFilm::class.java).equalTo("id", randomRezult.id.toString()).findAll().size == 0) {
             floatingLike.setImageResource(R.drawable.heart_outline)
             floatingLike.setOnClickListener {
                 floatingLike.setImageResource(R.drawable.heart)
@@ -183,7 +200,7 @@ class RandomFragment : Fragment() {
             floatingLike.setImageResource(R.drawable.heart)
             floatingLike.setOnClickListener {
                 realm.executeTransaction { realm ->
-                    realm.where(MyFilm::class.java).equalTo("id", randomRezult.id).findFirst()!!.deleteFromRealm()
+                    realm.where(MyFilm::class.java).equalTo("id", randomRezult.id.toString()).findFirst()!!.deleteFromRealm()
                 }
                 floatingLike.setImageResource(R.drawable.heart_outline)
                 if (position == 0) {
