@@ -7,11 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.bigi.kinotop.data.NewFilmData
+import com.example.bigi.kinotop.model.MyFilm
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_top_layout.view.*
 import com.google.gson.Gson
-
-
+import io.realm.Realm
 
 
 class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -> Unit) : RecyclerView.Adapter<TopFilmAdapter.ViewHolder>() {
@@ -25,9 +25,20 @@ class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: NewFilmData, listener: (NewFilmData) -> Unit) = with(itemView) {
+            val realm: Realm = Realm.getDefaultInstance()
+            if (realm.where(MyFilm::class.java).equalTo("id", item.id).findAll().size == 0) {
+                like.setOnClickListener{
+
+                }
+            } else {
+                like.setImageResource(R.drawable.heart)
+                like.setOnClickListener{
+
+                }
+            }
+
             textName.text = item.title
-            ratingView.setValueAnimated(item.voteAverage!!,1500)
-            //ratingView.setValue(item.voteAverage!!)
+            ratingView.setValueAnimated(item.voteAverage!!, 1500)
             Picasso.with(context)
                     .load("https://image.tmdb.org/t/p/w400${item.posterPath}")
                     .placeholder(R.drawable.in_progress)
@@ -35,10 +46,10 @@ class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -
             textDataView.text = item.releaseDate
             textGenresView.text = continText(item.genreIds)
             setOnClickListener {
-                val intent = Intent(context,FullFilmActivity::class.java)
+                val intent = Intent(context, FullFilmActivity::class.java)
                 val gson = Gson()
                 gson.toJson(item)
-                Log.d("dd",gson.toJson(item))
+                Log.d("dd", gson.toJson(item))
                 intent.putExtra("FILM_INFO", gson.toJson(item))
                 context.startActivity(intent)
             }
@@ -47,7 +58,7 @@ class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -
 }
 
 fun continText(item: List<Int?>?): String {
-    var genres: String = ""
+    var genres = ""
     if (item != null) {
         for (it in item) {
             for (id in GenreList.values()) {

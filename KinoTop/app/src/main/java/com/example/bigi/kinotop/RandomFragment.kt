@@ -2,7 +2,6 @@ package com.example.bigi.kinotop
 
 import android.app.Fragment
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,50 +12,47 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.fragment_random.*
 import android.view.animation.Animation.AnimationListener
-import com.example.bigi.kinotop.data.NewFilmData
+import com.example.bigi.kinotop.data.NewFilm
+import com.example.bigi.kinotop.model.MyFilm
 import com.squareup.picasso.Picasso
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.film_top_fragment.*
-import kotlinx.android.synthetic.main.list_top_layout.view.*
+import io.realm.Realm
+import io.realm.annotations.PrimaryKey
 import java.util.*
 
 
 class RandomFragment : Fragment() {
-
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requesRrandomFilm(false)
+
         spinner.adapter = ArrayAdapter<String>(activity, R.layout.list_genre, continText())
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, viewv: View?, position: Int, id: Long) {
-                floatingRepit.setOnClickListener {
-                    Log.d("ggg", parent!!.getItemAtPosition(position).toString())
-                    requesRrandomGenreFilm(parent,position)
-                    changeFilm()
-
-                }
-                if (position == 0) {
-                    floatingRepit.setOnClickListener {
-                        Log.d("fff", position.toString())
-                        requesRrandomFilm(true)
-                        changeFilm()
-
-                    }
-                }
+                spinnerOnClick(parent, position)
             }
         }
-        floatingLike.setOnClickListener {
-            floatingLike.setImageResource(R.drawable.heart)
-
-        }
-
-
     }
 
+    fun spinnerOnClick(parent: AdapterView<*>?, position: Int) {
+        floatingRepit.setOnClickListener {
+            Log.d("ggg", parent!!.getItemAtPosition(position).toString())
+            requesRrandomGenreFilm(parent, position)
+            changeFilm()
+        }
+        if (position == 0) {
+            floatingRepit.setOnClickListener {
+                Log.d("fff", position.toString())
+                requesRrandomFilm(true)
+                changeFilm()
+            }
+        }
+
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -99,33 +95,13 @@ class RandomFragment : Fragment() {
 
     }
 
-    private fun requesRrandomFilm(newOpen: Boolean) {
+    private fun requesRrandomFilm(newOpen: Boolean, parent: AdapterView<*>? = null, position: Int = 0) {
         val random = Random()
-        val animNew = AnimationUtils.loadAnimation(activity, R.anim.rept_new_film)
-
         Service.getFilm().randomFilm(random.nextInt(999) + 1)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({ result ->
-                    val randomRezult = result.results!!.get(random.nextInt(19))!!
-                    textNameView.text = randomRezult.title
-                    textDataView.text = randomRezult.releaseDate
-                    ratingView.setValueAnimated(randomRezult.voteAverage!!, 1500)
-                    popularityView.setValueAnimated(randomRezult.popularity!!, 1500)
-                    textGenresView.text = "Жанры: ${continText(randomRezult.genreIds)}"
-                    textInfoView.text = randomRezult.overview
-                    if (newOpen) {
-                        fabSpace.startAnimation(animNew)
-                        fabSpace.visibility = View.VISIBLE
-                    }
-                    Picasso.with(activity)
-                            .load("https://image.tmdb.org/t/p/w400${randomRezult.posterPath}")
-                            .placeholder(R.drawable.in_progress)
-                            .into(posterView)
-                    Picasso.with(activity)
-                            .load("https://image.tmdb.org/t/p/w500${randomRezult.backdropPath}")
-                            .placeholder(R.drawable.defaultes)
-                            .into(backgroundImageView)
+                    resultFilm(result, random, newOpen)
                 }, { error ->
                     error.printStackTrace()
                 })
@@ -134,7 +110,6 @@ class RandomFragment : Fragment() {
 
     private fun requesRrandomGenreFilm(parent: AdapterView<*>?, position: Int) {
         val random = Random()
-        val animNew = AnimationUtils.loadAnimation(activity, R.anim.rept_new_film)
         if (parent != null) {
             Service.getFilm().randomGenresFilm(
                     random.nextInt(
@@ -143,31 +118,89 @@ class RandomFragment : Fragment() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.io())
                     .subscribe({ result ->
-                            fabSpace.startAnimation(animNew)
-                            fabSpace.visibility = View.VISIBLE
-                        val randomRezult = result.results!!.get(random.nextInt(19) + 1)!!
-                        Picasso.with(activity)
-                                .load("https://image.tmdb.org/t/p/w500${randomRezult.posterPath}")
-                                .placeholder(R.drawable.in_progress)
-                                .into(posterView)
-                        Picasso.with(activity)
-                                .load("https://image.tmdb.org/t/p/original${randomRezult.backdropPath}")
-                                .placeholder(R.drawable.defaultes)
-                                .into(backgroundImageView)
-                        textNameView.text = randomRezult.title
-                        textDataView.text = randomRezult.releaseDate
-                        ratingView.setValueAnimated(randomRezult.voteAverage!!, 1500)
-                        popularityView.setValueAnimated(randomRezult.popularity!!, 1500)
-                        textGenresView.text = "Жанры: ${continText(randomRezult.genreIds)}"
-                        textInfoView.text = randomRezult.overview
-
+                        resultFilm(result, random, true, parent, position)
                     }, { error ->
                         error.printStackTrace()
                     })
         }
-
-
     }
 
+    fun resultFilm(result: NewFilm, random: Random, newOpen: Boolean, parent: AdapterView<*>? = null, position: Int = 0) {
+        val animNew = AnimationUtils.loadAnimation(activity, R.anim.rept_new_film)
+        val randomRezult = result.results!!.get(random.nextInt(19))!!
+        textNameView.text = randomRezult.title
+        textDataView.text = randomRezult.releaseDate
+        ratingView.setValueAnimated(randomRezult.voteAverage!!, 1500)
+        popularityView.setValueAnimated(randomRezult.popularity!!, 1500)
+        textGenresView.text = "Жанры: ${continText(randomRezult.genreIds)}"
+        textInfoView.text = randomRezult.overview
+        if (newOpen) {
+            fabSpace.startAnimation(animNew)
+            fabSpace.visibility = View.VISIBLE
+        }
+        Picasso.with(activity)
+                .load("https://image.tmdb.org/t/p/w400${randomRezult.posterPath}")
+                .placeholder(R.drawable.in_progress)
+                .into(posterView)
+        Picasso.with(activity)
+                .load("https://image.tmdb.org/t/p/w500${randomRezult.backdropPath}")
+                .placeholder(R.drawable.defaultes)
+                .into(backgroundImageView)
 
+
+        val realm: Realm = Realm.getDefaultInstance()
+        if (realm.where(MyFilm::class.java).equalTo("id", randomRezult.id).findAll().size == 0) {
+            floatingLike.setImageResource(R.drawable.heart_outline)
+            floatingLike.setOnClickListener {
+                floatingLike.setImageResource(R.drawable.heart)
+                val newLoveFilm = MyFilm()
+                newLoveFilm.title = randomRezult.title
+                newLoveFilm.voteCount = randomRezult.voteCount
+                newLoveFilm.id = randomRezult.id
+                newLoveFilm.video = randomRezult.video
+                newLoveFilm.voteAverage = randomRezult.voteAverage
+                newLoveFilm.popularity = randomRezult.popularity
+                newLoveFilm.posterPath = randomRezult.posterPath
+                newLoveFilm.originalLanguage = randomRezult.originalLanguage
+                newLoveFilm.originalTitle = randomRezult.originalTitle
+                newLoveFilm.genreIds = "Жанры: ${continText(randomRezult.genreIds)}"
+                newLoveFilm.backdropPath = randomRezult.backdropPath
+                newLoveFilm.adult = randomRezult.adult
+                newLoveFilm.overview = randomRezult.overview
+                newLoveFilm.releaseDate = randomRezult.releaseDate
+                realm.executeTransaction { realm ->
+                    realm.insert(newLoveFilm)
+                }
+
+                if (position == 0) {
+                    requesRrandomFilm(true)
+                    changeFilm()
+
+                } else {
+                    requesRrandomGenreFilm(parent, position)
+                    changeFilm()
+                }
+            }
+        } else {
+            floatingLike.setImageResource(R.drawable.heart)
+            floatingLike.setOnClickListener {
+                realm.executeTransaction { realm ->
+                    realm.where(MyFilm::class.java).equalTo("id", randomRezult.id).findFirst()!!.deleteFromRealm()
+                }
+                floatingLike.setImageResource(R.drawable.heart_outline)
+
+                if (position == 0) {
+                    requesRrandomFilm(true)
+                    changeFilm()
+
+                } else {
+                    requesRrandomGenreFilm(parent, position)
+                    changeFilm()
+                }
+            }
+
+        }
+    }
 }
+
+

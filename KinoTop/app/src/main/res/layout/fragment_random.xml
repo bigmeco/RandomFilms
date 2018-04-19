@@ -167,7 +167,7 @@
                             CircleProgressView:cpv_barWidth="8dp"
                             CircleProgressView:cpv_innerContourColor="#1eababab"
                             CircleProgressView:cpv_innerContourSize="1dp"
-                            CircleProgressView:cpv_maxValue="180"
+                            CircleProgressView:cpv_maxValue="160"
                             CircleProgressView:cpv_outerContourColor="#1eababab"
                             CircleProgressView:cpv_outerContourSize="1dp"
                             CircleProgressView:cpv_rimColor="#2f000000"

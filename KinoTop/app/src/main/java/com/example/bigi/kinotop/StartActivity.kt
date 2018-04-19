@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Fragment
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_start.*
 
 class StartActivity : AppCompatActivity() {
@@ -11,6 +12,7 @@ class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
+        Realm.init(this)
         transitionFragment(FilmTopFragment())
         bottom_navigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId){

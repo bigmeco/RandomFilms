@@ -1,8 +1,9 @@
 package com.example.bigi.kinotop.data
 
 import com.google.gson.annotations.SerializedName
+import io.realm.annotations.PrimaryKey
 
-data class NewFilmData(
+data class NewFilmData (
 
 	@field:SerializedName("overview")
 	val overview: String? = null,
