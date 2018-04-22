@@ -22,13 +22,13 @@ class FullFilmActivity : AppCompatActivity() {
                 .placeholder(R.drawable.in_progress)
                 .into(poster)
         Picasso.with(this)
-                .load("https://image.tmdb.org/t/p/original${item.backdropPath}")
+                .load("https://image.tmdb.org/t/p/w500${item.backdropPath}")
                 .placeholder(R.drawable.defaultes)
                 .into(screanFilm)
         ratingView.setValueAnimated(item.voteAverage!!, 1500)
         popularityView.setValueAnimated(item.popularity!!, 1500)
         textDataView.text = item.releaseDate
-        textGenresView.text = continText(item.genreIds)
+        textGNView.text = continText(item.genreIds)
         textInfo.text = item.overview
     }
 }

@@ -23,7 +23,10 @@
         <activity
             android:name=".FullFilmActivity"
             android:label="@string/title_activity_scrolling"
-            android:theme="@style/CastomTheme.NoActionBar"></activity>
+            android:theme="@style/CastomTheme.NoActionBar" />
+        <activity android:name=".MeFullFilmActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/CastomTheme.NoActionBar"/>
     </application>
 
 </manifest>

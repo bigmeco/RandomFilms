@@ -66,8 +66,10 @@ class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -
                     .placeholder(R.drawable.in_progress)
                     .into(poster)
             textDataView.text = item.releaseDate
-            textGenresView.text = continText(item.genreIds)
+            textGenresView.text = "Жанры:  ${continText(item.genreIds)}"
             setOnClickListener {
+                Log.d("dd",item.toString())
+
                 val intent = Intent(context, FullFilmActivity::class.java)
                 val gson = Gson()
                 gson.toJson(item)

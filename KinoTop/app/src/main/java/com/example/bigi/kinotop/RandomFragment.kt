@@ -43,11 +43,9 @@ class RandomFragment : Fragment() {
     }
 
     fun spinnerGenreClick(parent: AdapterView<*>?, position: Int) {
-        Log.d("ggg", parent!!.getItemAtPosition(position).toString())
         requesRrandomGenreFilm(parent, position)
         changeFilm()
         if (position == 0) {
-            Log.d("fff", position.toString())
             requesRrandomFilm(true)
             changeFilm()
         }
@@ -56,13 +54,11 @@ class RandomFragment : Fragment() {
 
     fun spinnerOnClick(parent: AdapterView<*>?, position: Int) {
         floatingRepit.setOnClickListener {
-            Log.d("ggg", parent!!.getItemAtPosition(position).toString())
             requesRrandomGenreFilm(parent, position)
             changeFilm()
         }
         if (position == 0) {
             floatingRepit.setOnClickListener {
-                Log.d("fff", position.toString())
                 requesRrandomFilm(true)
                 changeFilm()
             }
@@ -90,8 +86,6 @@ class RandomFragment : Fragment() {
             if (id.names == genre) {
                 i[0] = id.sizes
                 i[1] = id.id
-                Log.d("ggg", GenreList.valueOf(id.name).toString())
-
             }
         }
         return i
@@ -179,7 +173,7 @@ class RandomFragment : Fragment() {
                 newLoveFilm.posterPath = randomRezult.posterPath
                 newLoveFilm.originalLanguage = randomRezult.originalLanguage
                 newLoveFilm.originalTitle = randomRezult.originalTitle
-                newLoveFilm.genreIds = "Жанры: ${continText(randomRezult.genreIds)}"
+                newLoveFilm.genreIds = "Жанры:  ${continText(randomRezult.genreIds)}"
                 newLoveFilm.backdropPath = randomRezult.backdropPath
                 newLoveFilm.adult = randomRezult.adult
                 newLoveFilm.overview = randomRezult.overview
