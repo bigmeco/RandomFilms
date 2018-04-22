@@ -1,32 +1,63 @@
 package com.example.bigi.kinotop
 
 import android.content.Intent
+import android.net.Uri
+import android.os.Environment
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.bigi.kinotop.data.NewFilmData
 import com.example.bigi.kinotop.model.MyFilm
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_top_layout.view.*
-import com.google.gson.Gson
+import io.realm.Realm
+import kotlinx.android.synthetic.main.film_top_fragment.*
+import kotlinx.android.synthetic.main.fragment_user.view.*
+import android.support.v4.content.ContextCompat.startActivity
+import android.support.v4.content.ContextCompat.startActivity
+import android.support.v4.content.ContextCompat.startActivity
+import android.support.v4.content.ContextCompat.startActivity
+import android.os.Environment.getExternalStorageDirectory
+import android.support.v4.content.ContextCompat.startActivity
 
 
-class MyFilmAdapter(val items: List<MyFilm>) : RecyclerView.Adapter<MyFilmAdapter.ViewHolder>() {
+class MyFilmAdapter(val items: List<MyFilm>, val listener: () -> Unit) : RecyclerView.Adapter<MyFilmAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_top_layout, parent, false))
 
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(items[position])
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(items[position], listener)
 
     override fun getItemCount() = items.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: MyFilm) = with(itemView) {
+        fun bind(item: MyFilm, listener: () -> Unit) = with(itemView) {
+            val realm: Realm = Realm.getDefaultInstance()
             textName.text = item.title
             like.setImageResource(R.drawable.heart)
-            ratingView.setValueAnimated(item.voteAverage!!,1500)
+            like.setOnClickListener {
+                realm.executeTransaction { realm ->
+                    realm.where(MyFilm::class.java).equalTo("id", item.id.toString()).findFirst()!!.deleteFromRealm()
+                }
+                listener.invoke()
+            }
+
+
+            internetButton.setOnClickListener {
+                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://yandex.ru/search/?text=${item.title}")))
+
+            }
+
+            shareButton.setOnClickListener {
+                val sendIntent = Intent()
+                sendIntent.action = Intent.ACTION_SEND
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Рекомендую фильм '${item.title}' " +
+                        "https://www.themoviedb.org/movie/${item.id}")
+                sendIntent.type = "text/plain"
+                context.startActivity(sendIntent)
+            }
+
+            ratingView.setValueAnimated(item.voteAverage!!, 1500)
             //ratingView.setValue(item.voteAverage!!)
             Picasso.with(context)
                     .load("https://image.tmdb.org/t/p/w400${item.posterPath}")
@@ -36,17 +67,16 @@ class MyFilmAdapter(val items: List<MyFilm>) : RecyclerView.Adapter<MyFilmAdapte
             textGenresView.text = item.genreIds
             setOnClickListener {
 
-                Log.d("dd",item.toString())
-                val intent = Intent(context,MeFullFilmActivity::class.java)
-               intent.putExtra("id",item.id )
-               intent.putExtra("title", item.title)
-               intent.putExtra("voteAverage", item.voteAverage!!)
-               intent.putExtra("popularity",item.popularity)
-               intent.putExtra("backdropPath", item.backdropPath)
-               intent.putExtra("genreIds", item.genreIds)
-               intent.putExtra("posterPath", item.posterPath)
-               intent.putExtra("releaseDate", item.releaseDate)
-               intent.putExtra("overview", item.overview)
+                val intent = Intent(context, MeFullFilmActivity::class.java)
+                intent.putExtra("id", item.id)
+                intent.putExtra("title", item.title)
+                intent.putExtra("voteAverage", item.voteAverage!!)
+                intent.putExtra("popularity", item.popularity)
+                intent.putExtra("backdropPath", item.backdropPath)
+                intent.putExtra("genreIds", item.genreIds)
+                intent.putExtra("posterPath", item.posterPath)
+                intent.putExtra("releaseDate", item.releaseDate)
+                intent.putExtra("overview", item.overview)
                 context.startActivity(intent)
             }
         }

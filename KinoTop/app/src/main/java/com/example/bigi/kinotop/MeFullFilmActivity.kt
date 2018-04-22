@@ -1,11 +1,11 @@
 package com.example.bigi.kinotop
 
-import android.support.v7.app.AppCompatActivity
+import android.graphics.Color
 import android.os.Bundle
-import android.widget.Toolbar
-import com.example.bigi.kinotop.data.NewFilmData
-import com.google.gson.Gson
+import android.support.v7.app.AppCompatActivity
+import com.example.bigi.kinotop.model.MyFilm
 import com.squareup.picasso.Picasso
+import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_scrolling.*
 
 class MeFullFilmActivity : AppCompatActivity() {
@@ -14,6 +14,14 @@ class MeFullFilmActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_me_full_film)
         nameFilmText.text = intent.getStringExtra("title")
+        val realm: Realm = Realm.getDefaultInstance()
+        floatingLike.setOnClickListener {
+            realm.executeTransaction { realm ->
+                realm.where(MyFilm::class.java).equalTo("id", intent.getStringExtra("id")).findFirst()!!.deleteFromRealm()
+            }
+            floatingLike.setImageResource(R.drawable.heart_outline)
+            floatingLike.isEnabled = false
+        }
 
         Picasso.with(this)
                 .load("https://image.tmdb.org/t/p/w500${intent.getStringExtra("posterPath")}")
@@ -23,8 +31,8 @@ class MeFullFilmActivity : AppCompatActivity() {
                 .load("https://image.tmdb.org/t/p/w500${intent.getStringExtra("backdropPath")}")
                 .placeholder(R.drawable.defaultes)
                 .into(screanFilm)
-        ratingView.setValueAnimated(intent.getFloatExtra("voteAverage",0.toFloat()), 1500)
-        popularityView.setValueAnimated(intent.getFloatExtra("popularity",0.toFloat()), 1500)
+        ratingView.setValueAnimated(intent.getFloatExtra("voteAverage", 0.toFloat()), 1500)
+        popularityView.setValueAnimated(intent.getFloatExtra("popularity", 0.toFloat()), 1500)
         textDataView.text = intent.getStringExtra("releaseDate")
         textGNView.text = intent.getStringExtra("genreIds")
         textInfo.text = intent.getStringExtra("overview")

@@ -1,6 +1,7 @@
 package com.example.bigi.kinotop
 
 import android.content.Intent
+import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -58,6 +59,19 @@ class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -
                     like.setImageResource(R.drawable.heart_outline)
                 }
             }
+            internetButton.setOnClickListener {
+                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://yandex.ru/search/?text=${item.title}")))
+
+            }
+
+            shareButton.setOnClickListener {
+                val sendIntent = Intent()
+                sendIntent.action = Intent.ACTION_SEND
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Рекомендую фильм '${item.title}' " +
+                        "https://www.themoviedb.org/movie/${item.id}")
+                sendIntent.type = "text/plain"
+                context.startActivity(sendIntent)
+            }
 
             textName.text = item.title
             ratingView.setValueAnimated(item.voteAverage!!, 1500)
@@ -68,7 +82,7 @@ class TopFilmAdapter(val items: List<NewFilmData>, val listener: (NewFilmData) -
             textDataView.text = item.releaseDate
             textGenresView.text = "Жанры:  ${continText(item.genreIds)}"
             setOnClickListener {
-                Log.d("dd",item.toString())
+                Log.d("dd", item.toString())
 
                 val intent = Intent(context, FullFilmActivity::class.java)
                 val gson = Gson()

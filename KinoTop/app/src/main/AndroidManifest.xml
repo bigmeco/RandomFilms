@@ -13,7 +13,10 @@
         android:theme="@style/CastomTheme">
         <activity
             android:name=".StartActivity"
-            android:theme="@style/CastomTheme">
+            android:theme="@style/CastomTheme"
+            android:screenOrientation="portrait"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
