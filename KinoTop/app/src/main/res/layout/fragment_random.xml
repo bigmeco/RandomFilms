@@ -183,7 +183,6 @@
                             android:id="@+id/ratingView"
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-
                             android:layout_marginEnd="8dp"
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="4dp"
@@ -284,32 +283,41 @@
 
                 </android.support.v7.widget.CardView>
 
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/floatingLike"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:layout_marginTop="4dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:src="@drawable/heart_outline"
-                    CircleProgressView:backgroundTint="@color/SpaceColor"
-                    CircleProgressView:fabSize="mini"
-                    CircleProgressView:layout_constraintEnd_toEndOf="parent"
-                    CircleProgressView:layout_constraintTop_toTopOf="parent" />
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/fabBt"
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:elevation="@dimen/app_bar_height"
+                    android:paddingBottom="4dp">
 
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/floatingRepit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="4dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:src="@drawable/cached"
-                    CircleProgressView:fabSize="mini"
-                    CircleProgressView:layout_constraintStart_toStartOf="parent"
-                    CircleProgressView:layout_constraintTop_toTopOf="parent" />
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/floatingLike"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginTop="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/heart_outline"
+                        CircleProgressView:backgroundTint="@color/SpaceColor"
+                        CircleProgressView:fabSize="mini"
+                        CircleProgressView:layout_constraintEnd_toEndOf="parent"
+                        CircleProgressView:layout_constraintTop_toTopOf="parent" />
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/floatingRepit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/cached"
+                        CircleProgressView:fabSize="mini"
+                        CircleProgressView:layout_constraintStart_toStartOf="parent"
+                        CircleProgressView:layout_constraintTop_toTopOf="parent" />
+                </android.support.constraint.ConstraintLayout>
 
             </android.support.constraint.ConstraintLayout>
 

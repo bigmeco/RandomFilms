@@ -95,7 +95,11 @@ class RandomFragment : Fragment() {
         val animOld = AnimationUtils.loadAnimation(activity, R.anim.repit_film)
         fabSpace.startAnimation(animOld)
         animOld.setAnimationListener(object : AnimationListener {
-            override fun onAnimationStart(anim: Animation) {}
+            override fun onAnimationStart(anim: Animation) {
+                floatingLike.isEnabled = false
+                floatingRepit.isEnabled = false
+
+            }
             override fun onAnimationRepeat(anim: Animation) {}
             override fun onAnimationEnd(anim: Animation) {
                 fabSpace.visibility = View.INVISIBLE
@@ -143,10 +147,6 @@ class RandomFragment : Fragment() {
         popularityView.setValueAnimated(randomRezult.popularity!!, 1500)
         textGenresView.text = "Жанры: ${continText(randomRezult.genreIds)}"
         textInfoView.text = randomRezult.overview
-        if (newOpen) {
-            fabSpace.startAnimation(animNew)
-            fabSpace.visibility = View.VISIBLE
-        }
         Picasso.with(activity)
                 .load("https://image.tmdb.org/t/p/w400${randomRezult.posterPath}")
                 .placeholder(R.drawable.in_progress)
@@ -155,7 +155,19 @@ class RandomFragment : Fragment() {
                 .load("https://image.tmdb.org/t/p/w500${randomRezult.backdropPath}")
                 .placeholder(R.drawable.defaultes)
                 .into(backgroundImageView)
+        if (newOpen) {
+            fabSpace.startAnimation(animNew)
+            animNew.setAnimationListener(object : AnimationListener {
+                override fun onAnimationStart(anim: Animation) { }
+                override fun onAnimationRepeat(anim: Animation) {}
+                override fun onAnimationEnd(anim: Animation) {
+                    floatingLike.isEnabled = true
+                    floatingRepit.isEnabled = true
 
+                }
+            })
+            fabSpace.visibility = View.VISIBLE
+        }
 
         val realm: Realm = Realm.getDefaultInstance()
         if (realm.where(MyFilm::class.java).equalTo("id", randomRezult.id.toString()).findAll().size == 0) {
