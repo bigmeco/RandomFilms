@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bigi.kinotop">
+    package="com.bigmeco.bigi.kinotop">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/CastomTheme">
         <activity
-            android:name=".StartActivity"
+            android:name="com.bigmeco.bigi.kinotop.StartActivity"
             android:theme="@style/CastomTheme"
             android:screenOrientation="portrait"
             >
@@ -24,10 +24,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FullFilmActivity"
+            android:name="com.bigmeco.bigi.kinotop.FullFilmActivity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/CastomTheme.NoActionBar" />
-        <activity android:name=".MeFullFilmActivity"
+        <activity android:name="com.bigmeco.bigi.kinotop.MeFullFilmActivity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/CastomTheme.NoActionBar"/>
     </application>

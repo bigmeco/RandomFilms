@@ -4,14 +4,6 @@
     <list default="true" id="1f5d665b-5871-48b7-83fe-03dbe3ab58ca" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/KinoTop/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/KinoTop/.idea/caches/build_file_checksums.ser" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/FullFilmActivity.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/FullFilmActivity.kt" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/RandomFragment.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/RandomFragment.kt" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/TopFilmAdapter.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/TopFilmAdapter.kt" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/data/NewFilmData.kt" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/java/com/example/bigi/kinotop/data/NewFilmData.kt" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/activity_scrolling.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/activity_scrolling.xml" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/fragment_random.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/fragment_random.xml" />
-      <change beforePath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/list_top_layout.xml" afterPath="$PROJECT_DIR$/KinoTop/app/src/main/res/layout/list_top_layout.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,11 +41,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="AndroidView" />
       <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -304,7 +296,21 @@
       <option name="project" value="LOCAL" />
       <updated>1524176687670</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fix random activite">
+      <created>1524402613436</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1524402613437</updated>
+    </task>
+    <task id="LOCAL-00021" summary="finich">
+      <created>1524420754777</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1524420754777</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -349,7 +355,9 @@
     <MESSAGE value="fix activity" />
     <MESSAGE value="start random respons retrofit" />
     <MESSAGE value="fix random respons retrofit" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix random respons retrofit" />
+    <MESSAGE value="fix random activite" />
+    <MESSAGE value="finich" />
+    <option name="LAST_COMMIT_MESSAGE" value="finich" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

@@ -8,7 +8,7 @@ apply plugin: 'realm-android'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.example.bigi.kinotop"
+        applicationId "com.bigmeco.bigi.kinotop"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
