@@ -8,10 +8,10 @@
 ![](https://img.shields.io/badge/downloads-1k+-brightgreen?style=for-the-badge&logo=docusign&link=https://play.google.com/store/apps/details?id=com.bigmeco.bigi.kinotop&hl=ru)
 ------------
 
-![](https://lh3.googleusercontent.com/384vDZoaTc1hyYqu7XekRggT6n_sESPtyN4E2jqFhZy-3wpilp8z6rgVNSi3K4mJAZYl=w1861-h350-rw)
-![](https://lh3.googleusercontent.com/2JS_tHaaT1D1JX08UQZ6njw4TdeDUb-98cFlcXO3NFXo2FRIU9hzPTto7kfHiIvg5Lk=w1861-h350-rw) 
-![](https://lh3.googleusercontent.com/SG-icGpmLtASRM78lkTXnkTc0NfKRWDjIOP4MsyJogmV7VuNVcVvJhM9h7a9dloOCAQ=w1861-h350-rw) 
-![](https://lh3.googleusercontent.com/uYz4a_2f-vaZFn77ayfuUMo7qg8ZYfzRYmzISrH68eBHdHCdziPewRSDviKDGMLefZc=w1861-h350-rw)
+![](https://lh3.googleusercontent.com/384vDZoaTc1hyYqu7XekRggT6n_sESPtyN4E2jqFhZy-3wpilp8z6rgVNSi3K4mJAZYl=w1861-h360-rw)
+![](https://lh3.googleusercontent.com/2JS_tHaaT1D1JX08UQZ6njw4TdeDUb-98cFlcXO3NFXo2FRIU9hzPTto7kfHiIvg5Lk=w1861-h360-rw) 
+![](https://lh3.googleusercontent.com/SG-icGpmLtASRM78lkTXnkTc0NfKRWDjIOP4MsyJogmV7VuNVcVvJhM9h7a9dloOCAQ=w1861-h360-rw) 
+![](https://lh3.googleusercontent.com/uYz4a_2f-vaZFn77ayfuUMo7qg8ZYfzRYmzISrH68eBHdHCdziPewRSDviKDGMLefZc=w1861-h360-rw)
 
 #### Приложение создано для спасения вашего вечера когда вы не знаете что посмотреть.
 Здесь вы можете сыграть в лотерею в поисках подходящего для вас фильма на вечер, по всем жанрам или с конкретными предпочтениями.
